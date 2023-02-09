@@ -48,17 +48,9 @@ public class MoviesInfoRestApplication {
     @Bean
     public CommandLineRunner demo(MoviesInfoService moviesInfoService) {
         return (args) -> {
-            MoviesInfo moviesInfo = new MoviesInfo();
-            moviesInfo.setFilm("AVATAR: THE WAY OF THE WATER");
-            moviesInfo.setGenre("Sci-Fi");
-            moviesInfo.setLeadStudio("20th Century Studios");
-            moviesInfo.setAudienceScore(92);
-            moviesInfo.setWorldWideGross(1.749f);
-            moviesInfo.setRottenTomatoesScore(77);
-            moviesInfo.setProfitability(1.749f);
-            moviesInfo.setYear(2022);
 
-            moviesInfoService.save(moviesInfo);
+            moviesInfoService.save(new MoviesInfo("AVATAR: THE WAY OF THE WATER", "Sci-Fi",
+                    "20th Century Studios", 92, 1.749f, 77, 1.749f, 2022));
 
         };
     }

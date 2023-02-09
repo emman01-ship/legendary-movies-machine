@@ -9,7 +9,7 @@ import java.util.Objects;
 @Table(name = "movies")
 public class MoviesInfo implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "Film")
     private String film;
