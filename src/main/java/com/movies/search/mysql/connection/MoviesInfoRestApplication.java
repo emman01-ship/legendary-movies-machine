@@ -49,8 +49,13 @@ public class MoviesInfoRestApplication {
     public CommandLineRunner demo(MoviesInfoService moviesInfoService) {
         return (args) -> {
 
+            /*
             moviesInfoService.save(new MoviesInfo("AVATAR: THE WAY OF THE WATER", "Sci-Fi",
                     "20th Century Studios", 92, 1.749f, 77, 1.749f, 2022));
+
+             */
+
+            System.out.println();
 
         };
     }

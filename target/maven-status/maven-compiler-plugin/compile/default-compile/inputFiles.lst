@@ -1,7 +1,9 @@
 /Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/MoviesInfoRestApplication.java
-/Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/repository/MoviesInfo.java
+/Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/MoviesInfoHomeController.java
 /Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/service/MoviesInfoService.java
+/Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/dao/MoviesInfo.java
 /Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/service/MoviesInfoServiceImpl.java
 /Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/dao/Data.java
+/Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/components/moviesSQLHelper.java
 /Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/repository/Person.java
 /Users/emmanueladeniyi/IdeaProjects/movies-search-page/src/main/java/com/movies/search/mysql/connection/repository/MoviesInfoRepository.java

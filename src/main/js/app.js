@@ -1,24 +1,29 @@
 const React = require('react');
+import { useState } from 'react';
 const ReactDOM = require('react-dom');
 const client = require('./client');
-import { useState, useEffect } from 'react';
 
 class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {moviesInfoes: []};
+		this.state = {
+			moviesInfoes: []
+		};
 	}
+
 	
 	componentDidMount() {
-		client({method: 'GET', path: '/api/moviesInfoes'}).done(response => {
-			this.setState({moviesInfoes: response.entity._embedded.moviesInfoes});
-		});
-		// fetch(
-		// 	"http://localhost:8080/api/moviesInfoes")
-		// 				.then((res) =>  res.text()).then((data) => 
-		// 					JSON.parse(data)._embedded.moviesInfoes).then((dataParsed) => this.setState({moviesInfoes: dataParsed}))
+		// client({method: 'GET', path: '/api/moviesInfoes?size=10'}).done(response => {
+		// 	this.setState({moviesInfoes: response.entity._embedded.moviesInfoes});
+		// });
+		fetch(
+			"http://localhost:8080/api/moviesInfoes?page=3")
+						.then((res) =>  res.text()).then((data) => 
+							JSON.parse(data)._embedded.moviesInfoes
+						).then((dataParsed) => this.setState({moviesInfoes: dataParsed}))
 	}
+
 
 	render() {
 		return (
@@ -36,7 +41,8 @@ class MoviesInfoList extends React.Component{
 			);
 		
 		return (
-			<table>
+			<div>
+				<table>
 				<tbody>
 					<tr>
 						<th>Film</th>
@@ -51,6 +57,7 @@ class MoviesInfoList extends React.Component{
 					{moviesInfoes}
 				</tbody>
 			</table>
+			</div>
 		)
 	}
 }
@@ -60,8 +67,9 @@ class MoviesInfo extends React.Component{
 		console.log(this.props.moviesInfo.id)
 		
 		return (
+			
 			<tr>
-				<td>{this.props.moviesInfo.film}</td>
+				<button>{this.props.moviesInfo.film}</button>
 				<td>{this.props.moviesInfo.genre}</td>
 				<td>{this.props.moviesInfo.leadStudio}</td>
 				<td>{this.props.moviesInfo.audienceScore}</td>
@@ -70,6 +78,7 @@ class MoviesInfo extends React.Component{
 				<td>{this.props.moviesInfo.worldWideGross}</td>
 				<td>{this.props.moviesInfo.year}</td>
 			</tr>
+		
 		)
 	}
 }
