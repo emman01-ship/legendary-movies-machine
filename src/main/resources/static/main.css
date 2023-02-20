@@ -9,3 +9,12 @@ td, th {
     height: 100;
     text-decoration-color: rgb(42, 165, 52);
 }
+
+.pagination-container {
+    width: 70%;
+    float:left;
+  }
+
+.pagination {
+    margin: 0;
+}
