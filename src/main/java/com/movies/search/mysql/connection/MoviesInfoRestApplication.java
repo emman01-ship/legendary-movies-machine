@@ -1,7 +1,5 @@
 package com.movies.search.mysql.connection;
 
-import com.movies.search.mysql.connection.dao.MoviesInfo;
-
 import com.movies.search.mysql.connection.service.MoviesInfoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -9,8 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan("com.movies.search.mysql.connection.controller")
 public class MoviesInfoRestApplication {
 
     public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class MoviesInfoRestApplication {
      */
 
     @Bean
-    public CommandLineRunner demo(MoviesInfoService moviesInfoService) {
+    public CommandLineRunner demo() {
         return (args) -> {
 
             /*

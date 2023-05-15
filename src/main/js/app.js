@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 const ReactDOM = require('react-dom');
+import { useState, useEffect } from 'react';
 const client = require('./client');
 import ReactTable from 'react-table-6';
 import styled from 'styled-components';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
-import BootstrapTable from 'react-bootstrap-table-next';
-import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
-import paginationFactory from 'react-bootstrap-table2-paginator';
-import cellEditFactory from 'react-bootstrap-table2-editor';
+import HomeTable from "./pages/HomeTable";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import RecommendMovie from "./pages/Recommend";
 
 const Wrapper = styled.div`
   padding: 0 40px 40px 40px;
@@ -47,34 +48,36 @@ class App extends Component {
 	render() {
 
 		const movies = this.state.moviesInfoes || [];
-		console.log(this.state.page)
+		const moviesLen = this.state.page.totalElements;
+		console.log(this.state.page.totalElements)
 		console.log(movies);
+		
 
-		const options = {  
+		// const options = {  
 			
-							page: 2,   
-							sizePerPageList: [ {  		
-							text: '5', value: 5  
-								}, 
-								{  
-									text: '10', value: 10  
+		// 					page: 2,   
+		// 					sizePerPageList: [ {  		
+		// 					text: '5', value: 5  
+		// 						}, 
+		// 						{  
+		// 							text: '10', value: 10  
 			
-								}, 
-								{  
+		// 						}, 
+		// 						{  
 			
-									text: 'All', value: this.state.moviesInfoes.length  
-								} ],   
-									sizePerPage: 5,   
-									pageStartIndex: 0,   
-									paginationSize: 3,    
-									prePage: 'Prev',   
-									nextPage: 'Next',   
-									firstPage: 'First',   
-									lastPage: 'Last',   
-									paginationPosition: 'top' 
-						}
+		// 							text: 'All', value: this.state.moviesInfoes.length  
+		// 						} ],   
+		// 							sizePerPage: 5,   
+		// 							pageStartIndex: 0,   
+		// 							paginationSize: 3,    
+		// 							prePage: 'Prev',   
+		// 							nextPage: 'Next',   
+		// 							firstPage: 'First',   
+		// 							lastPage: 'Last',   
+		// 							paginationPosition: 'top' 
+		// 				}
 
-		const columns = [
+		//const columns = [
 			// {
 			// 	Header: 'Movie',
 			// 	accessor: 'film',
@@ -102,34 +105,34 @@ class App extends Component {
 			// 		return <span>{props.original.leadStudio}</span>
 			// 	}
 			// },
-			{  
+			// {  
 				
-				dataField: 'film',  	
-				text: 'Search Movies',  	
-				filter: textFilter()  
+			// 	dataField: 'film',  	
+			// 	text: 'Search Movies',  	
+			// 	filter: textFilter()  
 				
-			},
-			// {
-			// 	dataField: 'film',
-			// 	text: 'Movie',
-			// 	sort: true	
 			// },
-			{
-				dataField: 'genre',
-				text: 'Genre',
-				sort: true
-			},
-			{
-				dataField: 'year',
-				text: 'Year released',
-				sort: true
-			}
+			// // {
+			// // 	dataField: 'film',
+			// // 	text: 'Movie',
+			// // 	sort: true	
+			// // },
+			// {
+			// 	dataField: 'genre',
+			// 	text: 'Genre',
+			// 	sort: true
+			// },
+			// {
+			// 	dataField: 'year',
+			// 	text: 'Year released',
+			// 	sort: true
+			// }
 
-		]
+		//]
 
-		const cellEdit = cellEditFactory({
-			mode: 'click'
-		  });
+		// const cellEdit = cellEditFactory({
+		// 	mode: 'click'
+		//   });
 		
 		return (
 
@@ -158,20 +161,32 @@ class App extends Component {
 			// 		`No items to render`
 			// 		)}
 			// </Wrapper>
-			<div>
-				<BootstrapTable
-					striped
-					hover
-					keyField='id'
-					data={movies}
-					columns={columns}
-					filter={filterFactory()}
-					pagination={ paginationFactory(options)} 
-					rowStyle={{ backgroundColor: 'light green' }}
-					rowClasses="custom-row-class1"
-					cellEdit={ cellEdit }
-				/>
-			</div>
+			// <div>
+			// 	<BootstrapTable
+			// 		striped
+			// 		hover
+			// 		keyField='id'
+			// 		data={movies}
+			// 		columns={columns}
+			// 		filter={filterFactory()}
+			// 		pagination={ paginationFactory(options)} 
+			// 		rowStyle={{ backgroundColor: 'light green' }}
+			// 		rowClasses="custom-row-class1"
+			// 		cellEdit={ cellEdit }
+			// 	/>
+			// </div>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Layout />}>
+						<Route index element={<Home/>} />
+						<Route path="movies" element={<HomeTable movies={movies}
+						moviesLength={moviesLen}/>}/>
+						<Route path="recommend" element={<RecommendMovie numberOfMovies={moviesLen}/>} />
+
+					</Route>
+				</Routes>
+			</BrowserRouter>
+
 			
 		)
 	}
