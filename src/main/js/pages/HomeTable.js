@@ -60,7 +60,7 @@ const cellEdit = cellEditFactory({
 
 const HomeTable = (movies, moviesLength) => {
 
-    console.log(movies.movies);
+    console.log(movies);
     return (
         <div>
 				<BootstrapTable

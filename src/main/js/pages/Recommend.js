@@ -3,126 +3,91 @@ import { useState } from 'react';
 import Recommend from '../api/recommendMovies';
 
 
-const RecommendMovie = (allMovies) => {
-  //console.log(allMovies.numberOfMovies);
+function RecommendMovie(allMovies){
+  //`http://localhost:8080/api/moviesInfoes?size=${allMovies.numberOfMovies}`
 
-  const results = async () => {
-    const response = await fetch(
-      `http://localhost:8080/api/moviesInfoes?size=${allMovies.numberOfMovies}`
-    );
-    const data = await response.json();
-    const result = data._embedded;
-    
-    //console.log(result);
 
-    return result;
-  }
+  const initialvalues = {genre: "", year: "", score: ""};
+  const [formValues, setFormValues] = useState(initialvalues);
+  const [formErrors, setFormErrors] = useState({});
 
-  const [state, setMovies] = useState(
-    {
-      genre: "",
-      year: "",
-      score: "",
-      money: "",
-      moviesList: [results()]
-    }
-  );
-
-  function handleChange(evt) {
-    const value = evt.target.value;
-    setMovies({
-      ...state,
-      [evt.target.name]: value
+  const handleChange = (evt) => {
+    const {name, value} = evt.target;
+    setFormValues({
+      ...formValues,
+      [name]: value
     });
-  }
-
-  function populateMovies(){
-    fetch(`http://localhost:8080/api/moviesInfoes?size=${allMovies.numberOfMovies}`)
-        .then((res) =>  
-        res.json()).then((data) => 
-        setMovies((prevState) => {
-          return(
-            {
-              ...prevState,
-              moviesList: data._embedded
-            }
-          )
-        }));
-        // console.log(state);
-        // console.log("yes");
-        // console.log("yes");
+    
   }
 
   const handleSubmit = (evt) => {
-    //populateMovies();
-    console.log(state);
+    //prevents page from getting refreshed
     evt.preventDefault();
-
-    // async function fetchData() {
-    //   const response = await fetch(
-    //     `http://localhost:8080/api/moviesInfoes?size=${allMovies.numberOfMovies}`
-    //   );
-    //   const data = await response.json();
-    //   const results = data._embedded;
-    //   setMovies(
-    //     (prevState) => {
-    //       return(
-    //         {
-    //           ...prevState,
-    //           moviesList: results
-    //         }
-    //       )
-    //     }
-    //   );
-    // }
-    //fetchData();
-  
-
-    var rec = new Recommend(evt.target.genre.value,
-      evt.target.year.value, 
-      evt.target.score.value, 12345,
-      state.moviesList);
+    console.log(formValues);
+    //setFormErrors(validate(formValues));
     // console.log(rec);
     // console.log(evt.target.genre.value);
   }
 
+  // const validate = (values) => {
+  //   const errors = {}
+    
+  // }
+
   return (
-      <form onSubmit={(e)=> handleSubmit(e)}>
-        <label>
-          Preferred movie genre:  
+      <div className="container">
+        <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
+        <form onSubmit={handleSubmit}>
+          <h1>Movie Recommend Page</h1>
+          <div className="ui divider"></div>
+          <div className="ui form"> 
+            <div className="field">
+              <label>
+              Preferred movie genre:  
+              <input
+                type="text"
+                name="genre"
+                placeholder="genre"
+                value={formValues.genre}
+                onChange={handleChange}
+              />
+            </label>
+            </div>
+          <br></br>
+          <div className="field">
+            <label>
+              Preferred year range:  
+              <input
+                type="text"
+                name="year"
+                placeholder="year"
+                value={formValues.year}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <br></br>
+          <div className="field">
+            <label>
+              Preferred Rotten Tomatoes Score 0-100: 
+              <input
+                type="text"
+                name="score"
+                placeholder="score"
+                value={formValues.score}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <br></br>
           <input
-            type="text"
-            name="genre"
-            value={state.genre}
-            onChange={handleChange}
+            type="submit"
+            value="Submit"
           />
-        </label>
-        <br></br>
-        <label>
-          Preferred year range:  
-          <input
-            type="text"
-            name="year"
-            value={state.year}
-            onChange={handleChange}
-          />
-        </label>
-        <br></br>
-        <label>
-          Preferred Rotten Tomatoes Score 0-100: 
-          <input
-            type="text"
-            name="score"
-            value={state.score}
-            onChange={handleChange}
-          />
-        </label>
-        <br></br>
-        <input
-          type="submit"
-          value="Submit"
-        />
-      </form>
+          </div>
+          
+        </form>
+      </div>
     )
 }
 

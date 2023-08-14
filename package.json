@@ -1,7 +1,7 @@
 {
   "name": "spring-legendary-movies-rest-and-reactjs",
   "version": "0.1.0",
-  "description": "Movies Suggester ReactJS + Spring Data REST",
+  "description": "Expense page to practice restApis + Spring Data REST",
   "repository": {
     "type": "git",
     "url": "git@github.com:emman01-ship/legendary-movies-machine.git"

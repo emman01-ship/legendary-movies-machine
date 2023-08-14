@@ -10,6 +10,7 @@ import HomeTable from "./pages/HomeTable";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import RecommendMovie from "./pages/Recommend";
+import json from 'rest/mime/type/application/json';
 
 const Wrapper = styled.div`
   padding: 0 40px 40px 40px;
@@ -20,120 +21,37 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			moviesInfoes: [],
-			page: []
+			moviesList: [],
+			numberOfMovies: 0
 		};
 	}
-
 	
-	componentDidMount() {
-		// client({method: 'GET', path: '/api/moviesInfoes?size=10'}).done(response => {
-		// 	console.log(response.entity._embedded.moviesInfoes)
-		// 	this.setState({moviesInfoes: response.entity._embedded.moviesInfoes});
-		// });
+
+	componentDidMount(){
 
 		fetch(
-			`http://localhost:8080/api/moviesInfoes`)
-				.then((res) =>  
-					res.json()).then((data) => 
-						this.setState(
-						{
-							moviesInfoes: data._embedded.moviesInfoes,
-							page: data.page
-						}));
+			`http://localhost:8080/moviesInfo/all` , {
+				// mode: 'no-cors',
+				method: 'GET',
+				headers: {
+			  Accept: 'application/json',
+			},
+		  },
+			).then((res) => res.ok? res.json() : Promise.reject())
+			.then( (json) => 
+				this.setState({
+					moviesList: json.content,
+					numberOfMovies: json.totalElements
+				})
+			);
+	
 	}
 
+	render(){
 
-
-	render() {
-
-		const movies = this.state.moviesInfoes || [];
-		const moviesLen = this.state.page.totalElements;
-		console.log(this.state.page.totalElements)
-		console.log(movies);
-		
-
-		// const options = {  
-			
-		// 					page: 2,   
-		// 					sizePerPageList: [ {  		
-		// 					text: '5', value: 5  
-		// 						}, 
-		// 						{  
-		// 							text: '10', value: 10  
-			
-		// 						}, 
-		// 						{  
-			
-		// 							text: 'All', value: this.state.moviesInfoes.length  
-		// 						} ],   
-		// 							sizePerPage: 5,   
-		// 							pageStartIndex: 0,   
-		// 							paginationSize: 3,    
-		// 							prePage: 'Prev',   
-		// 							nextPage: 'Next',   
-		// 							firstPage: 'First',   
-		// 							lastPage: 'Last',   
-		// 							paginationPosition: 'top' 
-		// 				}
-
-		//const columns = [
-			// {
-			// 	Header: 'Movie',
-			// 	accessor: 'film',
-			// 	filterable: true,
-			// 	Cell: props => {
-			// 		return <span data-genre={props.original.film}>{props.original.film}</span>
-			// 	}
-
-			// }
-			// ,
-			// {
-			// 	Header: 'Genre',
-			// 	accessor: 'genre',
-			// 	filterable: true,
-			// 	Cell: props => {
-			// 		console.log(props)
-			// 		return <span data-genre={props.original.genre}>{props.original.genre}</span>
-			// 	}
-			// },
-			// {
-			// 	Header: 'Lead Studio',
-			// 	accessor: 'leadStudio',
-			// 	filterable: true,
-			// 	Cell: props => {
-			// 		return <span>{props.original.leadStudio}</span>
-			// 	}
-			// },
-			// {  
-				
-			// 	dataField: 'film',  	
-			// 	text: 'Search Movies',  	
-			// 	filter: textFilter()  
-				
-			// },
-			// // {
-			// // 	dataField: 'film',
-			// // 	text: 'Movie',
-			// // 	sort: true	
-			// // },
-			// {
-			// 	dataField: 'genre',
-			// 	text: 'Genre',
-			// 	sort: true
-			// },
-			// {
-			// 	dataField: 'year',
-			// 	text: 'Year released',
-			// 	sort: true
-			// }
-
-		//]
-
-		// const cellEdit = cellEditFactory({
-		// 	mode: 'click'
-		//   });
-		
+		console.log(this.state.moviesList);
+		//console.log(this.state.numberOfMovies);
+		var moviesLen = this.state.numberOfMovies;
 		return (
 
 			// <div>
@@ -175,21 +93,31 @@ class App extends Component {
 			// 		cellEdit={ cellEdit }
 			// 	/>
 			// </div>
+	
+			/*
+				<Route path="movies" element={<HomeTable movies={movies}
+						moviesLength={moviesLen}/>}/>
+						<Route path="recommend" element={<RecommendMovie numberOfMovies={moviesLen}/>} />
+			*/
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Layout />}>
 						<Route index element={<Home/>} />
-						<Route path="movies" element={<HomeTable movies={movies}
-						moviesLength={moviesLen}/>}/>
+						<Route path="movies" element={<HomeTable movies={this.state.moviesList}
+						moviesLength={this.state.numberOfMovies}/>}/>
 						<Route path="recommend" element={<RecommendMovie numberOfMovies={moviesLen}/>} />
-
+	
 					</Route>
 				</Routes>
 			</BrowserRouter>
-
+	
 			
 		)
 	}
+
+
+
+	
 }
 
 
