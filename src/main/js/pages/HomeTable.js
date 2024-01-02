@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import BootstrapTable from 'react-bootstrap-table-next';

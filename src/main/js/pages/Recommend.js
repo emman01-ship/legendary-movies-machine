@@ -23,7 +23,7 @@ function RecommendMovie(allMovies){
   const handleSubmit = (evt) => {
     //prevents page from getting refreshed
     evt.preventDefault();
-    console.log(formValues);
+    console.log(formValues.genre);
     //setFormErrors(validate(formValues));
     // console.log(rec);
     // console.log(evt.target.genre.value);

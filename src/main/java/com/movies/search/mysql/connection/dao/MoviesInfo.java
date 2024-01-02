@@ -21,7 +21,7 @@ public class MoviesInfo implements Serializable {
     private Integer audienceScore;
     @Column(name = "Profitability")
     private Float profitability;
-    @Column(name = "Rotten Tomatoes %")
+    @Column(name = "Rotten Tomatoes")
     private Integer rottenTomatoesScore;
     @Column(name = "WorldWide Gross")
     private Float worldWideGross;
