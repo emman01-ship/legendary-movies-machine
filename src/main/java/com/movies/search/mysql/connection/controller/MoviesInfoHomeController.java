@@ -25,6 +25,7 @@ public class MoviesInfoHomeController implements ErrorController {
     private final MoviesInfoService moviesInfoService;
     private final JavaMysql javaMysql;
 
+
     /*
     @RequestMapping(value = "/")
     public String index(){
@@ -33,13 +34,12 @@ public class MoviesInfoHomeController implements ErrorController {
 
      */
 
-    /*
     @GetMapping(value="")
     public String hello(ModelMap Model) {
         return "list";
     }
 
-     */
+
 
     @RequestMapping("/error")
     @ResponseBody

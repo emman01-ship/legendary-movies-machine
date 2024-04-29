@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { useState } from 'react';
+import React from 'react';
+
 //const [allMovies, setMovies] = useState({});
 
 class Recommend {
