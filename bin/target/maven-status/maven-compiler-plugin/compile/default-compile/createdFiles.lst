@@ -1,0 +1,7 @@
+com/movies/search/mysql/connection/repository/MoviesInfo.class
+com/movies/search/mysql/connection/MoviesInfoRestApplication.class
+com/movies/search/mysql/connection/service/MoviesInfoServiceImpl.class
+com/movies/search/mysql/connection/service/MoviesInfoService.class
+com/movies/search/mysql/connection/repository/MoviesInfoRepository.class
+com/movies/search/mysql/connection/dao/Data.class
+com/movies/search/mysql/connection/repository/Person.class

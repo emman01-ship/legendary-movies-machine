@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseDbTool">
+    <option name="sources">
+      <map>
+        <entry key="MoviesDB MySQL">
+          <value>
+            <DataConfigSourceDto>
+              <option name="comment" value="" />
+              <option name="dataBaseType" value="MySql" />
+              <option name="database" value="data" />
+              <option name="databaseName" value="MoviesDB MySQL" />
+              <option name="databaseSslConfig">
+                <DatabaseSslConfig>
+                  <option name="caFile" value="" />
+                  <option name="clientCertificateFile" value="" />
+                  <option name="clientKeyFile" value="" />
+                  <option name="clientKeyPassword" value="" />
+                  <option name="sslMode" value="REQUIRE" />
+                </DatabaseSslConfig>
+              </option>
+              <option name="databaseVersion">
+                <NameVersion>
+                  <option name="majorVersion" value="8" />
+                  <option name="name" value="MySQL" />
+                  <option name="version" value="8.0.31" />
+                </NameVersion>
+              </option>
+              <option name="dbFile" value="" />
+              <option name="driverCombos" value="thin" />
+              <option name="driverType" value="MySQL" />
+              <option name="host" value="localhost" />
+              <option name="jarUrl" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/MySQL ConnectorJ/8.0.21/mysql-connector-java-8.0.21.jar" />
+              <option name="myUniqueId" value="3235a113-e9c5-4556-bfb9-c3a186104621" />
+              <option name="port" value="3306" />
+              <option name="properties">
+                <map />
+              </option>
+              <option name="schemaSourceDto">
+                <SchemaSourceDto>
+                  <option name="name" value="data" />
+                  <option name="tableSources">
+                    <list>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="Film" />
+                              <option name="columnType" value="text" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="TEXT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="1" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="Genre" />
+                              <option name="columnType" value="text" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="TEXT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="2" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="Lead Studio" />
+                              <option name="columnType" value="text" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="TEXT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="3" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="Audience Score %" />
+                              <option name="columnType" value="int" />
+                              <option name="dataType" value="4" />
+                              <option name="dataTypeStr" value="INT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="4" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="Profitability" />
+                              <option name="columnType" value="float" />
+                              <option name="dataType" value="6" />
+                              <option name="dataTypeStr" value="FLOAT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="5" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="FLOAT" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="Rotten Tomatoes %" />
+                              <option name="columnType" value="int" />
+                              <option name="dataType" value="4" />
+                              <option name="dataTypeStr" value="INT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="6" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="WorldWide Gross" />
+                              <option name="columnType" value="float" />
+                              <option name="dataType" value="6" />
+                              <option name="dataTypeStr" value="FLOAT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="7" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="FLOAT" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="Year" />
+                              <option name="columnType" value="int" />
+                              <option name="dataType" value="4" />
+                              <option name="dataTypeStr" value="INT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="8" />
+                              <option name="tableName" value="movies" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="MySql" />
+                        <option name="schema" value="data" />
+                        <option name="tableName" value="movies" />
+                        <option name="tableRemark" value="" />
+                        <option name="tableType" value="BASE TABLE" />
+                      </TableSourceDto>
+                    </list>
+                  </option>
+                </SchemaSourceDto>
+              </option>
+              <option name="sid" value="" />
+              <option name="url" value="jdbc:mysql://localhost:3306/data?useSSL=false&amp;serverTimezone=America/New_York&amp;allowPublicKeyRetrieval=true" />
+              <option name="userName" value="root" />
+              <option name="driverVersion">
+                <NameVersion>
+                  <option name="majorVersion" value="8" />
+                  <option name="name" value="MySQL Connector/J" />
+                  <option name="version" value="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" />
+                </NameVersion>
+              </option>
+            </DataConfigSourceDto>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
