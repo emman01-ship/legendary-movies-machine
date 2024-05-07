@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TablePagination } from 'react-pagination-table';
+import './hometable.css';
 
 /* react-bootstrap-table-next has dependency conflicts
       it is deprecicated. The current version of react is @18
@@ -40,6 +41,7 @@ export default function HomeTable(){
             <div>
                 {(allData.movies || []).length > 0 ? (
 				<TablePagination
+                className="hometable" 
                 title="TablePagination"
                 subTitle="Sub Title"
                 headers= {Header}
