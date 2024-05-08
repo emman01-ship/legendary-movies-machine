@@ -21,9 +21,8 @@ Start front end run command: webpack --watch
 
 SQL Notes
 
-1. Download CSV file  into desired directory
-2. Start mysql server and create a database 
-3. Create table inside database with corresponding column names and types
+1.  Start mysql server and create a database, should be in same directory as movies.csv file
+2. Create table inside database with corresponding column names and types
 
 create table movies (Film bigint, Genre varchar(255), Genre varchar(255), `Lead Studio` varchar(255), `Audience Score %` varchar(255), Profitability bigint, `Rotten Tomatoes` int, `WorldWide Gross` bigint, Year int);
 
@@ -41,4 +40,4 @@ mysql --local_infile=1 -u root
 
 5. Enter previously created table and run command to load csv file
 
-load data local infile 'movies2.csv' into table example fields terminated by ',' enclosed by '"' lines terminated by '\n' ignore 1 rows;
+load data local infile 'movies.csv' into table example fields terminated by ',' enclosed by '"' lines terminated by '\n' ignore 1 rows;
