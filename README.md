@@ -26,7 +26,7 @@ SQL Notes
 
 create table movies (Film bigint, Genre varchar(255), Genre varchar(255), `Lead Studio` varchar(255), `Audience Score %` varchar(255), Profitability bigint, `Rotten Tomatoes` int, `WorldWide Gross` bigint, Year int);
 
-* column names with spaces should be inserted inside back-ticks as for example "Lead Studio" but with back-ticks
+* column names with spaces should be inserted inside back-ticks, for example "Lead Studio" but with back-ticks
 
 3. Enter command
 
