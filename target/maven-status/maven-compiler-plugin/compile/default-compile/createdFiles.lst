@@ -2,7 +2,6 @@ com/movies/search/mysql/connection/kafka/MovieProducerWithCallback$1.class
 com/movies/search/mysql/connection/controller/MoviesInfoHomeController.class
 com/movies/search/mysql/connection/service/MoviesInfoServiceConfig.class
 com/movies/search/mysql/connection/repository/MoviesInfoRepository.class
-com/movies/search/mysql/connection/components/moviesSQLHelper.class
 com/movies/search/mysql/connection/dao/Data.class
 com/movies/search/mysql/connection/repository/Person.class
 com/movies/search/mysql/connection/kafka/MovieProducerWithCallback.class
