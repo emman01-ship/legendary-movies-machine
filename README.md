@@ -15,9 +15,13 @@ OpenJDK 64-Bit Server VM Homebrew (build 20.0.1, mixed mode, sharing)
 
 React: "react": "^18.2.0"
 
-Start front end run command: webpack --watch
+Start backend:
 
-* make sure to run npm install to load all modules
+* before running intellij make sure mysql server is running with command 'mysql.server start'
+
+Start front end: run command: webpack --watch
+
+* make sure to run npm install first to load all modules
 
 SQL Notes
 
