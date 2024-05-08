@@ -144,12 +144,12 @@ function Recommend(allMovies){
             type="submit"
             value="Submit"
           />
-          {(suggestions.movies || []).length > 0 ? 
-          <h2 className='resultsbox'> {suggestions.movies.map((item) => 
-          {return <ul className='results'>{item}</ul>})}</h2> : null}
           </div>
           
         </form>
+        {(suggestions.movies || []).length > 0 ? 
+          <h2 className='resultsbox'> {suggestions.movies.map((item) => 
+          {return <ul className='results'>{item}</ul>})}</h2> : null}
       </div>
     )
 }
