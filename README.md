@@ -1,32 +1,41 @@
-Required versions: 
+Title: Legendary Movie Machine
 
-Mysql: mysql  Ver 8.0.33 for macos12.6 on x86_64 (Homebrew)
+Project Description: 
 
-IntelliJ : IntelliJ IDEA 2022.3 (Community Edition)
+A Full Stack project using Spring Boot and React.js with a MySql database. 
+Application has 3 pages, A plain homepage with a greeting, A table to look at the available movies 
+with quick descriptions and recommend page with 3 set criteria the user can enter in order to have a list of movies recommended from the table. 
+Project is meant to get a solid foundation on full stack development. From front end areas such page routing, displaying large amounts of data on a single page, 
+and database manipulation. In the back end setting up endpoints that allow interactions with the database and other possible services
 
-VS CODE: Version: 1.88.1
+Mysql is installed locally using home brew. Front and Back end run on the same port localhost:8080. This made possible by the 
+bundling tool webpack which bundles all the React files into a bundle.js that is ran in a html file in the java back end
+which is loaded up by the Spring Boot thymeleaf template generator.
 
-Npm : 10.5.0
+Project is right now in its base stage with future additions in plan such as interacting with other services and making the 
+homepage much more interactable.
 
-Java: openjdk 20.0.1 2023-04-18
-OpenJDK Runtime Environment Homebrew (build 20.0.1)
+Project Learning Material:
 
-OpenJDK 64-Bit Server VM Homebrew (build 20.0.1, mixed mode, sharing)
+Setting up Back End
 
-React: "react": "^18.2.0"
+https://spring.io/guides/tutorials/react-and-spring-data-rest/
 
-Start backend:
+Setting up React with Java 
 
-* before running intellij make sure mysql server is running with command 'mysql.server start'
+https://spring.io/guides/tutorials/react-and-spring-data-rest https://springjava.com/spring-boot/spring-boot-with-jpa-entity/
 
-Start front end: run command: webpack --watch
+Setting up Spring with Mysql
 
-* make sure to run npm install first to load all modules
+https://spring.io/guides/gs/accessing-data-mysql
 
-SQL Notes
+How to set up project after repo download:
 
-1.  Start mysql server and create a database, should be in same directory as movies.csv file
-2. Create table inside database with corresponding column names and types
+**********SQL Notes
+
+1.  open project in same directory as movies.csv file
+2.  Enter mysql.server start to start mysql server and create a database,
+3. Create table inside database with corresponding column names and types
 
 create table movies (Film bigint, Genre varchar(255), Genre varchar(255), `Lead Studio` varchar(255), `Audience Score %` varchar(255), Profitability bigint, `Rotten Tomatoes` int, `WorldWide Gross` bigint, Year int);
 
@@ -45,3 +54,29 @@ mysql --local_infile=1 -u root
 5. Enter previously created table and run command to load csv file
 
 load data local infile 'movies.csv' into table example fields terminated by ',' enclosed by '"' lines terminated by '\n' ignore 1 rows;
+
+
+**********Start backend
+
+* before running intellij make sure mysql server is running with command 'mysql.server start'
+
+**********Start front end: run command: webpack --watch
+
+* make sure to run npm install first to load all modules
+
+Required versions: 
+
+Mysql: mysql  Ver 8.0.33 for macos12.6 on x86_64 (Homebrew)
+
+IntelliJ : IntelliJ IDEA 2022.3 (Community Edition)
+
+VS CODE: Version: 1.88.1
+
+Npm : 10.5.0
+
+Java: openjdk 20.0.1 2023-04-18
+OpenJDK Runtime Environment Homebrew (build 20.0.1)
+
+OpenJDK 64-Bit Server VM Homebrew (build 20.0.1, mixed mode, sharing)
+
+React: "react": "^18.2.0"
